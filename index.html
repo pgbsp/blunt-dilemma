@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#403124" />
+  <title>Battle of Prairie Grove | Commander's Dilemma</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1>BATTLE OF PRAIRIE GROVE</h1>
+
+    <p class="subtitle">
+      Can You Lead Blunt's Army?
+    </p>
+
+    <p class="tagline">
+      A Civil War Command Decision Experience
+    </p>
+  </header>
+
+  <main class="container">
+
+    <section
+      class="card"
+      id="dilemmaCard"
+      aria-live="polite">
+
+      <p class="screen-label">
+        Interpretive Activity
+      </p>
+
+      <h2 id="sceneTitle">
+        Loading Scenario...
+      </h2>
+
+      <div class="intro-story">
+
+        <p>
+          December 7, 1862. Brigadier General James G. Blunt's troops
+          approached Prairie Grove from the northwest. To the east,
+          General Herron's men were already heavily engaged with
+          Confederate forces holding positions along the ridge.
+        </p>
+
+        <p>
+          Communication was imperfect, information was incomplete,
+          and commanders often had only minutes to make decisions.
+          Success depended upon timing, coordination, and the ability
+          to adapt to changing battlefield conditions.
+        </p>
+
+        <p>
+          As commander of Blunt's force, consider the choices that
+          confronted Union officers throughout the day. How would your decisions shape the battle's outcome?
+        </p>
+
+      </div>
+
+      <div class="historical-note">
+        <p>
+          <strong>Historical Note:</strong> This activity is based on
+          documented actions and battlefield conditions associated with
+          Brigadier General James G. Blunt's command during the Battle
+          of Prairie Grove. Outcomes have been simplified for educational
+          interpretation and to illustrate the challenges of Civil War
+          battlefield leadership.
+        </p>
+      </div>
+
+      <div
+        class="status-grid"
+        role="group"
+        aria-label="Campaign Conditions">
+
+        <div class="stat">
+          <div class="label">Marching Tempo</div>
+          <div class="bar-wrap">
+            <div id="timeBar" class="bar"></div>
+          </div>
+          <div id="timeVal" class="value dim">≈</div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Supplies Available</div>
+          <div class="bar-wrap">
+            <div id="supplyBar" class="bar"></div>
+          </div>
+          <div id="supplyVal" class="value dim">≈</div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Army Morale</div>
+          <div class="bar-wrap">
+            <div id="moraleBar" class="bar"></div>
+          </div>
+          <div id="moraleVal" class="value dim">≈</div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Battle Losses</div>
+          <div class="bar-wrap">
+            <div id="casualtyBar" class="bar danger"></div>
+          </div>
+          <div id="casualtyVal" class="value dim">≈</div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Army Cohesion</div>
+          <div class="bar-wrap">
+            <div id="cohesionBar" class="bar neutral"></div>
+          </div>
+          <div id="cohesionVal" class="value dim">≈</div>
+        </div>
+
+        <div class="step-indicator">
+
+          <strong>Decision Point:</strong>
+
+          <span id="stepVal">1</span>
+          /
+          <span id="stepMax">7</span>
+
+          <span
+            id="phaseTag"
+            class="badge posture">
+            Phase: —
+          </span>
+
+          <span
+            id="routeTag"
+            class="badge alt hidden"
+            aria-live="polite">
+          </span>
+
+        </div>
+
+      </div>
+
+      <section
+        class="map-section"
+        aria-label="Prairie Grove Battlefield Map">
+
+        <h3 class="map-title">
+          Prairie Grove Battlefield
+        </h3>
+
+        <figure class="battle-map">
+
+          <img
+            id="mapBase"
+            class="map-base"
+            alt="Prairie Grove battlefield map" />
+
+          <svg
+            id="mapOverlay"
+            class="map-overlay"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true">
+
+            <g
+              id="unionLines"
+              class="lines-union">
+            </g>
+
+            <g
+              id="confLines"
+              class="lines-conf">
+            </g>
+
+          </svg>
+
+          <figcaption class="map-caption">
+            Follow the movement of Union and Confederate forces
+            throughout the battle. Troop positions update as each
+            decision point advances the story of the engagement.
+          </figcaption>
+
+        </figure>
+
+        <div class="map-legend">
+
+          <span class="legend-item">
+            <span class="strip strip-union"></span>
+            Union Line
+          </span>
+
+          <span class="legend-item">
+            <span class="strip strip-conf"></span>
+            Confederate Line
+          </span>
+
+        </div>
+
+      </section>
+
+      <div
+        id="sceneBody"
+        class="scene-body">
+      </div>
+
+      <div
+        id="choiceList"
+        class="choice-list"
+        role="group"
+        aria-label="Decision Options">
+      </div>
+
+      <div class="puzzle-actions">
+
+        <button
+          class="primary-btn touch-btn"
+          id="confirmBtn"
+          type="button">
+          Continue the Campaign
+        </button>
+
+        <button
+          class="secondary-btn touch-btn"
+          id="resetBtn"
+          type="button">
+          Begin Again
+        </button>
+
+        <button
+          class="secondary-btn touch-btn"
+          id="shareBtn"
+          type="button">
+          Copy Scenario Link
+        </button>
+
+        <a class="text-btn" href="../index.html">
+          Return to Prairie Grove Experiences
+        </a>
+
+      </div>
+
+      <div
+        id="outcomeBox"
+        class="outcome-box hidden">
+
+        <h3 id="outcomeTitle">
+          Campaign Outcome
+        </h3>
+
+        <p id="outcomeSummary"></p>
+
+        <div class="outcome-metrics">
+
+          <div>
+            <strong>Final Morale:</strong>
+            <span id="finalMorale">—</span>
+            (<span id="finalMoraleNum">—</span>)
+          </div>
+
+          <div>
+            <strong>Remaining Supplies:</strong>
+            <span id="finalSupply">—</span>
+          </div>
+
+          <div>
+            <strong>Army Cohesion:</strong>
+            <span id="finalCohesion">—</span>
+            (<span id="finalCohesionNum">—</span>)
+          </div>
+
+          <div>
+            <strong>Time Remaining:</strong>
+            <span id="finalTime">—</span> hrs
+          </div>
+
+          <div>
+            <strong>Union Casualties (Blunt's Command):</strong>
+            <span id="finalCasualties">—</span>
+          </div>
+
+          <div>
+            <strong>Historic Decisions Followed:</strong>
+            <span id="historicCount">—</span> / 7
+          </div>
+
+          <div>
+            <strong>Battle Phases Completed:</strong>
+            <span id="finalPhases">—</span>
+          </div>
+
+          <div>
+            <strong>Command Path:</strong>
+            <span id="finalPath">—</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <details class="sources">
+
+        <summary>
+          Historical Notes
+        </summary>
+
+        <ul>
+
+          <li>
+            Blunt's division approached Prairie Grove from the
+            northwest and engaged the Confederate left flank during
+            the afternoon fighting.
+          </li>
+
+          <li>
+            This activity focuses on leadership decisions and battlefield
+            challenges faced by Union commanders rather than attempting
+            to recreate every event exactly as it occurred.
+          </li>
+
+          <li>
+            Army-condition indicators represent broad battlefield trends
+            and are intended to support interpretation of the campaign.
+          </li>
+
+        </ul>
+
+      </details>
+
+    </section>
+
+  </main>
+
+  <footer>
+    Prairie Grove Battlefield State Park Interpretive Experience
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
