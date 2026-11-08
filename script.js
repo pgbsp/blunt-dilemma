@@ -309,8 +309,11 @@ function showOutcome() {
    Ridge arc remains ~x:20–78, y:57–62; Blunt NW lines stay ~x:18–36, y:46–54 across phases. */
 const TROOP_LINES = {
   "1": { // Blunt forming NW; Confederate ridge arc
-    union: [ [[18,48],[26,50]] ],
-    conf:  [ [[20,60],[34,58],[48,57],[62,58],[78,62]] ]
+    union: [ 
+       [[90,92],[26,50]] ],          // Blunt arriving
+       [[55,60], [62,59], [70,58]]   // Herron stationary (reference)
+    ],
+    conf:  [ [[18,12],[34,58],[48,57],[62,58],[78,62]] ]
   },
   "2": { // artillery deployment NW
     union: [ [[20,49],[28,51]] ],
