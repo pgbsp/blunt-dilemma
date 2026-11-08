@@ -161,7 +161,7 @@ const NODES = {
     id: "1",
     title: "3:00 PM • Arrival ",
     body: "Your division has arrived at the battlefield. Make your first move.",
-    phase: "Early Afternoon • NW Approach & Alignment",
+    phase: "Arrival",
     choices: [
       { id: "1A", label: "Form your units; keep things steady",
         desc: "Cohesion steady; stamina preserved.",
@@ -176,7 +176,7 @@ const NODES = {
     id: "2",
     title: "Deploying Artillery",
     body: "Deicde how to arrange your artillery for the fight.",
-    phase: "Artillery Deployment • NW Front",
+    phase: "Artillery Deployment",
     choices: [
       { id: "2A", label: "Broad deployment along the field",
         desc: "Coverage improves; lesser risk of casualties.",
@@ -191,7 +191,7 @@ const NODES = {
     id: "3",
     title: "Test the Ridgeline",
     body: "You need to test the Confederate's strength. How should you proceed?",
-    phase: "Skirmish & Probe • NW Sector",
+    phase: "First Contact",
     choices: [
       { id: "3A", label: "Send a small party to probe",
         desc: "Better information; greater casualties.",
@@ -206,7 +206,7 @@ const NODES = {
     id: "4",
     title: "The Push Downhill",
     body: "The Confederates have ordered a large counterattack. How will you answer?",
-    phase: "Renewed Push & Counterfire • Enemy Left",
+    phase: "Confederate Push",
     choices: [
       { id: "4A", label: "Drive at the enemy",
         desc: "Greater casualties; risk of destruction.",
@@ -221,7 +221,7 @@ const NODES = {
     id: "5",
     title: "The Big Push",
     body: "You need to dislodge the Confederates from their position. Decide how to proceed.",
-    phase: "~15:00–16:00 • NW Attack & Coordination",
+    phase: "Union Attack",
     choices: [
       { id: "5A", label: "Order an attack; hold back one regiment",
         desc: "Avoids possible destruction; risks cohesion and effectiveness.",
@@ -236,7 +236,7 @@ const NODES = {
     id: "6",
     title: "Another Counterattack",
     body: "The Confederates are charging with bayonets. You must respond, and quickly.",
-    phase: "Late Afternoon • Ammunition Low",
+    phase: "Second Confederate Counterattack",
     choices: [
       { id: "6A", label: "Order artillery barrage; have infantry fall back",
         desc: "Reduced casualties; risks cohesion and supplies.",
@@ -250,8 +250,8 @@ const NODES = {
   "7": {
     id: "7",
     title: "Nightfall",
-    body: "Night settles. Hold positions or adjust for overnight risk.",
-    phase: "After Dusk • Night Positions",
+    body: "Darkness falls over the field.",
+    phase: "Nightfall",
     choices: [
       { id: "7B", label: "Hold position and camp for the night",
         desc: "Rests the men; prepares them for tomorrow's fighting.",
