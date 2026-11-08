@@ -165,7 +165,7 @@ const NODES = {
     choices: [
       { id: "1A", label: "Form your units; keep things steady",
         desc: "Cohesion steady; stamina preserved.",
-        effects: s => { s.time -= 0; s.cohesion += 3; s.morale += 1; s.supply -= 2; s.casualties += 40; } },
+        effects: s => { s.time -= 0; s.cohesion += 3; s.morale += 1; s.supply -= 2; s.casualties += 50; } },
       { id: "1B", label: "Send men up as they come",
         desc: "Faster contact; cohesion risk.",
         effects: s => { s.time -= 1; s.cohesion -= 3; s.morale += 1; s.supply -= 4; s.casualties += 60; } }
@@ -275,7 +275,7 @@ function computeOutcome(s) {
     return { score, title: "Tactical Victory", summary: "You mostly followed the course Blunt took; at midnight, the Confederates left the field, leaving you and Herron a tactical victory." };
   }
   if (score >= 140) {
-    return { score, title: "Tactical Victory", summary: "You mostly followed the course Blunt took; at midnight, the Confederates left the field, leaving you and Herron a tactical victory.." };
+    return { score, title: "Tactical Victory", summary: "You mostly followed the course Blunt took; at midnight, the Confederates left the field, leaving you and Herron a tactical victory." };
   } else if (score >= 110) {
     return { score, title: "Marginal Success", summary: "You diverted some from the course Blunt took. The Confederates left the field, but you incurred greater losses than were necessary." };
   } else {
@@ -313,7 +313,11 @@ const TROOP_LINES = {
       [[18,12],[32,34]],             // Blunt arriving
       [[55,60],[62,59],[70,58]]      // Herron stationary (reference)
     ],
-    conf:  [ [[18,12],[34,58],[48,57],[62,58],[78,62]] ]
+    conf: [
+      [[22,13],[34,58]],
+      [[48,57],[62,58]],
+      [[78,62],[55,45]]
+    ]
   },
   "2": { // artillery deployment NW
     union: [ [[20,49],[28,51]] ],
@@ -518,7 +522,13 @@ function copyShareLink() {
   if (state.phases.length) params.set("ph", state.phases.map(p => p.replace(/\s+/g, "_")).join(","));
   params.set("hc", String(state.historicCount));
   const url = `${location.origin}${location.pathname}?${params.toString()}`;
-  navigator.clipboard?.writeText(url).then(() => toast("Share link copied to clipboard."))
+  if (!navigator.clipboard?.writeText) {
+    toast("Unable to copy. You can share the URL in your address bar.");
+    return;
+  }
+
+  navigator.clipboard.writeText(url)
+    .then(() => toast("Share link copied to clipboard."))
     .catch(() => toast("Unable to copy. You can share the URL in your address bar."));
 }
 function toast(msg) {
@@ -602,5 +612,4 @@ function hydrateFromURL() {
     }
   }
 }
-
 
