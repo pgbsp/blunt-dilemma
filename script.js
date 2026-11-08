@@ -159,14 +159,14 @@ const HISTORIC_CHOICES = {
 const NODES = {
   "1": {
     id: "1",
-    title: "Early Afternoon • Approach from the Northwest",
-    body: "Form up on the northwest approaches opposite the Confederate ridge.",
+    title: "3:00 PM • Arrival ",
+    body: "Your division has arrived at the battlefield. Make your first move.",
     phase: "Early Afternoon • NW Approach & Alignment",
     choices: [
-      { id: "1A", label: "Steady approach; align brigades",
-        desc: "Cohesion steadies; tempo preserved.",
+      { id: "1A", label: "Form your units; keep things steady",
+        desc: "Cohesion steady; stamina preserved.",
         effects: s => { s.time -= 0; s.cohesion += 3; s.morale += 1; s.supply -= 2; s.casualties += 40; } },
-      { id: "1B", label: "Push hard to contact",
+      { id: "1B", label: "Send men up as they come",
         desc: "Faster contact; cohesion risk.",
         effects: s => { s.time -= 1; s.cohesion -= 3; s.morale += 1; s.supply -= 4; s.casualties += 60; } }
     ],
@@ -174,91 +174,88 @@ const NODES = {
   },
   "2": {
     id: "2",
-    title: "Deploy Artillery on the NW Front",
-    body: "Emplace guns facing the ridge; choose deployment pattern.",
+    title: "Deploying Artillery",
+    body: "Deicde how to arrange your artillery for the fight.",
     phase: "Artillery Deployment • NW Front",
     choices: [
-      { id: "2A", label: "Broad deployment along the front",
-        desc: "Coverage improves; massed fire limited.",
+      { id: "2A", label: "Broad deployment along the field",
+        desc: "Coverage improves; lesser risk of casualties.",
         effects: s => { s.morale += 2; s.time -= 1; s.casualties += 60; s.supply -= 6; } },
-      { id: "2B", label: "Concentrate for counterbattery",
-        desc: "Heavier fire; higher per-unit exposure.",
+      { id: "2B", label: "Concentrate from one position",
+        desc: "Heavier and faster fire; greater risk of casualties.",
         effects: s => { s.morale += 3; s.time -= 1; s.casualties += 80; s.supply -= 8; } }
     ],
     next: "3"
   },
   "3": {
     id: "3",
-    title: "Probe the Ridge from the NW",
-    body: "Advance skirmishers and test the Confederate crest.",
+    title: "Test the Ridgeline",
+    body: "You need to test the Confederate's strength. How should you proceed?",
     phase: "Skirmish & Probe • NW Sector",
     choices: [
-      { id: "3A", label: "Commit a controlled probe",
-        desc: "Contact maintained; losses moderate.",
+      { id: "3A", label: "Send a small party to probe",
+        desc: "Better information; greater casualties.",
         effects: s => { s.cohesion += 4; s.time -= 1; s.casualties += 70; s.morale += 2; s.supply -= 5; } },
-      { id: "3B", label: "Hold skirmish line; conserve ammunition",
-        desc: "Lower immediate losses; cohesion drifts.",
+      { id: "3B", label: "Hold your current line",
+        desc: "Lower casualty risk; you know less; men become impatient.",
         effects: s => { s.casualties += 90; s.cohesion -= 3; s.morale += 1; s.supply -= 3; } }
     ],
     next: "4"
   },
   "4": {
     id: "4",
-    title: "Decisive Push on the Confederate Left",
-    body: "Press the attack against the enemy’s left; counterfire is heavy.",
+    title: "The Push Downhill",
+    body: "The Confederates have ordered a large counterattack. How will you answer?",
     phase: "Renewed Push & Counterfire • Enemy Left",
     choices: [
-      { id: "4A", label: "Stabilize line; limited counter",
-        desc: "Cohesion steadies; fewer losses.",
-        effects: s => { s.cohesion += 4; s.casualties += 70; s.morale += 2; s.time -= 0; s.supply -= 5; } },
-      { id: "4B", label: "Drive harder to exploit openings",
-        desc: "Greater shock; higher casualties; tempo cost.",
-        effects: s => { s.cohesion -= 2; s.casualties += 100; s.morale += 3; s.time -= 1; s.supply -= 8; } }
+      { id: "4A", label: "Drive at the enemy",
+        desc: "Greater casualties; risk of destruction.",
+        effects: s => { s.cohesion -= 3; s.casualties += 120; s.morale -= 2; s.time -= 0; s.supply -= 5; } },
+      { id: "4B", label: "Pull back",
+        desc: "Lower casualties; slightly reduced cohesion.",
+        effects: s => { s.cohesion -= 2; s.casualties += 80; s.morale += 3; s.time -= 0; s.supply -= 3; } }
     ],
     next: "5"
   },
   "5": {
     id: "5",
-    title: "~15:00–16:00 • Strike the Left & Coordinate with Center",
-    body: "Attack the Confederate left from the northwest; coordinate with Herron in the center.",
+    title: "The Big Push",
+    body: "You need to dislodge the Confederates from their position. Decide how to proceed.",
     phase: "~15:00–16:00 • NW Attack & Coordination",
     choices: [
-      { id: "5A", label: "Attack promptly; hold NW arc",
-        desc: "Check enemy left; center thins slightly.",
-        effects: s => { s.cohesion += 2; s.casualties += 60; s.morale += 1; s.time -= 0; s.supply -= 7; } },
-      { id: "5B", label: "Hold center; prepare then push",
-        desc: "Center steady; losses rise on the flank.",
-        effects: s => { s.cohesion += 1; s.casualties += 90; s.morale += 0; s.time -= 0; s.supply -= 5; } }
+      { id: "5A", label: "Order an attack; hold back one regiment",
+        desc: "Avoids possible destruction; risks cohesion and effectiveness.",
+        effects: s => { s.cohesion -= 2; s.casualties += 60; s.morale += 1; s.time -= 0; s.supply -= 4; } },
+      { id: "5B", label: "Attack with your entire force",
+        desc: "Higher casualties; greater chance at victory.",
+        effects: s => { s.cohesion += 1; s.casualties += 100; s.morale += 0; s.time -= 0; s.supply -= 5; } }
     ],
     next: "6"
   },
   "6": {
     id: "6",
-    title: "Late Afternoon • Ammunition Running Low",
-    body: "Decide whether to husband ammunition or press locally near sunset.",
+    title: "Another Counterattack",
+    body: "The Confederates are charging with bayonets. You must respond, and quickly.",
     phase: "Late Afternoon • Ammunition Low",
     choices: [
-      { id: "6A", label: "Husband ammunition; shorten line",
-        desc: "Lower immediate losses; cohesion improves; tempo slows.",
-        effects: s => { s.casualties += 50; s.cohesion += 4; s.time -= 1; s.morale += 1; s.supply -= 10; } },
-      { id: "6B", label: "Press with bayonet locally",
-        desc: "Higher losses; morale uptick; cohesion variable.",
-        effects: s => { s.casualties += 80; s.morale += 3; s.cohesion -= 1; s.time -= 0; s.supply -= 12; } }
+      { id: "6A", label: "Order artillery barrage; have infantry fall back",
+        desc: "Reduced casualties; risks cohesion and supplies.",
+        effects: s => { s.casualties += 80; s.cohesion += 4; s.time -= 1; s.morale += 1; s.supply -= 10; } },
+      { id: "6B", label: "Order full counter-charge",
+        desc: "Higher losses; risk of destruction.",
+        effects: s => { s.casualties += 120; s.morale -= 3; s.cohesion -= 2; s.time -= 0; s.supply -= 10; } }
     ],
     next: "7"
   },
   "7": {
     id: "7",
-    title: "After Dusk • Hold the Field",
+    title: "Nightfall",
     body: "Night settles. Hold positions or adjust for overnight risk.",
     phase: "After Dusk • Night Positions",
     choices: [
-      { id: "7A", label: "Consolidate & step back to stronger posts",
-        desc: "Concedes ground; preserves force.",
-        effects: s => { s.time -= 0; s.morale -= 1; s.cohesion += 2; s.casualties += 40; s.supply -= 5; } },
-      { id: "7B", label: "Hold positions overnight",
-        desc: "Maintain field; supply remains critical.",
-        effects: s => { s.time -= 0; s.morale += 1; s.supply -= 8; s.casualties += 60; } }
+      { id: "7B", label: "Hold position and camp for the night",
+        desc: "Rests the men; prepares them for tomorrow's fighting.",
+        effects: s => { s.time -= 0; s.morale += 1; s.cohesion += 2; s.casualties += 0; s.supply -= 5; } }
     ],
     next: "END"
   }
@@ -272,17 +269,17 @@ function computeOutcome(s) {
               - Math.min(s.casualties / 6, 100); // scaled to 600
 
   if (s.historicCount >= 6) {
-    return { score, title: "Victory", summary: "Your historic course seized the initiative; the enemy left the field." };
+    return { score, title: "Victory", summary: "You followed the course Blunt took; at midnight, the Confederates left the field, leaving you and Herron a tactical victory." };
   }
   if (s.historicCount >= 5) {
-    return { score, title: "Tactical Victory", summary: "Coordinated attacks achieved tactical success as the enemy yielded ground." };
+    return { score, title: "Tactical Victory", summary: "You mostly followed the course Blunt took; at midnight, the Confederates left the field, leaving you and Herron a tactical victory." };
   }
   if (score >= 140) {
-    return { score, title: "Tactical Victory", summary: "You pressed with coordination and held the field at a cost." };
+    return { score, title: "Tactical Victory", summary: "You mostly followed the course Blunt took; at midnight, the Confederates left the field, leaving you and Herron a tactical victory.." };
   } else if (score >= 110) {
-    return { score, title: "Marginal Success", summary: "Progress with trade-offs; steady positions preserved the line." };
+    return { score, title: "Marginal Success", summary: "You diverted some from the course Blunt took. The Confederates left the field, but you incurred greater losses than were necessary." };
   } else {
-    return { score, title: "Stalemate", summary: "Positions held; losses and fatigue prevented a clearer result." };
+    return { score, title: "Stalemate", summary: "You diverted from the course Blunt took. The Confederates left the field; but not thanks to you." };
   }
 }
 function showOutcome() {
