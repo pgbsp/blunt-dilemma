@@ -175,7 +175,7 @@ const NODES = {
   "2": {
     id: "2",
     title: "Deploying Artillery",
-    body: "Deicde how to arrange your artillery for the fight.",
+    body: "Decide how to arrange your artillery for the fight.",
     phase: "Artillery Deployment",
     choices: [
       { id: "2A", label: "Broad deployment along the field",
@@ -309,9 +309,9 @@ function showOutcome() {
    Ridge arc remains ~x:20–78, y:57–62; Blunt NW lines stay ~x:18–36, y:46–54 across phases. */
 const TROOP_LINES = {
   "1": { // Blunt forming NW; Confederate ridge arc
-    union: [ 
-       [[90,92],[26,50]] ],          // Blunt arriving
-       [[55,60], [62,59], [70,58]]   // Herron stationary (reference)
+    union: [
+      [[18,12],[32,34]],             // Blunt arriving
+      [[55,60],[62,59],[70,58]]      // Herron stationary (reference)
     ],
     conf:  [ [[18,12],[34,58],[48,57],[62,58],[78,62]] ]
   },
@@ -602,4 +602,5 @@ function hydrateFromURL() {
     }
   }
 }
+
 
