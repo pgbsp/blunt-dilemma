@@ -310,8 +310,9 @@ function showOutcome() {
 const TROOP_LINES = {
   "1": { // Blunt forming NW; Confederate ridge arc
     union: [
-      [[18,11],[24,18]],             // Blunt arriving
-      [[55,60],[62,59],[70,58]]      // Herron stationary (reference)
+      [[15,31],[18,20]],             // Blunt arriving
+      [[55,22],[54,49]],
+      [[75,20],[82,25]]
     ],
     conf: [
       [[13,45],[34,76]],
